@@ -227,6 +227,14 @@ function (_Handler) {
         }
 
         var parameters = sender.getParameters();
+        if(encodings.length == 0) {
+            encodings.push({
+              rid: "medium".concat(_this3._nextRid),
+              active: true,
+              priority: 'medium',
+              maxBitrate: producer.simulcast.medium
+            });
+        }
         return sender.setParameters(_objectSpread({}, parameters, {
           encodings: encodings
         }));
